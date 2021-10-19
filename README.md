@@ -1,6 +1,5 @@
 ----Dot Hit Script----
 --                --
-
 while wait(0.1) do
 	
 	
