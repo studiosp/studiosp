@@ -1,33 +1,41 @@
-
 ----Dot Hit Script----
 --                --
---Variables--
-     local Character = game.Player.LocalPlayer.Character
-   local Play = game.Player.LocalPlayer
-   local Animacion = Play.Character(script.Anim)
-    local Sonido = script.Sonido
-    local DMG = script.Parent.Dmg.Value
-       --VFX--
-         local hit = game.Workspace.hit:Clone()
-       --Script--
-      while wait(0.1) do
-    if Character.Stun.Value == true then 
-  
-   --UnMobility--
-   Character.HumanoidRootaPart.Anchored = true
-  if Character.HumanoidRootPart.Anchored == true then
-   --Efectt--
-   hit.Parent = game.Workspace
-   hit.Position = Character.Torso.Position
-  Animacion:Play()
-   Sonido:Play()
-  Character.Humanoid:TakeDamage(DMG)
- wait(0.3)
- --Mobility And Stop Hit--
-   Character.HumanoidRootaPart.Anchored = false
-  Animacion:Stop()
-  hit:Destroy()
-  Sonido:Stop()
-     end
-  end
+
+while wait(0.1) do
+	wait(0.1)
+	
+	--Variables--
+	local Play = script.Parent.Parent
+	local Character = Play.Character
+
+	local Animacion = Character.Humanoid:LoadAnimation(script.Anim)
+	--local Sonido = script.Sonido
+	local DMG = Character.DMG.Value
+	
+	
+	
+if Character.Stun.Value == true then 
+
+--VFX--
+local hit = game.ReplicatedStorage.hit:Clone()
+--Script--
+
+
+
+		--UnMobility--
+		Character.HumanoidRootPart.Anchored = true
+			--Efectt--
+			hit.Parent = game.Workspace
+			hit.Position = Character.Torso.Position
+			Animacion:Play()
+			--Sonido:Play()
+			
+			wait(0.4)
+			--Mobility And Stop Hit--
+		Character.HumanoidRootPart.Anchored = false
+		Animacion:Stop()
+			hit:Destroy()
+			--Sonido:Stop()
+		
+	end
 end 
