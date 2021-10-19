@@ -2,14 +2,14 @@
 --                --
 
 while wait(0.1) do
-	wait(0.1)
+	
 	
 	--Variables--
 	local Play = script.Parent.Parent
 	local Character = Play.Character
 
 	local Animacion = Character.Humanoid:LoadAnimation(script.Anim)
-	--local Sonido = script.Sonido
+	local Sonido = script.Sonido
 	local DMG = Character.DMG.Value
 	
 	
@@ -24,18 +24,20 @@ local hit = game.ReplicatedStorage.hit:Clone()
 
 		--UnMobility--
 		Character.HumanoidRootPart.Anchored = true
-			--Efectt--
+		--Efectt--
+		wait(0.2)
 			hit.Parent = game.Workspace
-			hit.Position = Character.Torso.Position
+			hit.Position = Character.HumanoidRootPart.Position
 			Animacion:Play()
-			--Sonido:Play()
-			
-			wait(0.4)
+			Sonido:Play()
+		Character.Humanoid:TakeDamage(DMG)
+			wait(0.7)
 			--Mobility And Stop Hit--
 		Character.HumanoidRootPart.Anchored = false
 		Animacion:Stop()
 			hit:Destroy()
-			--Sonido:Stop()
-		
+			Sonido:Stop()
+		wait(0.2)
 	end
 end 
+
