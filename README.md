@@ -12,7 +12,7 @@
        --Script--
       while wait(0.1) do
     if Character.Stun.Value == true then 
-   Sonido:Play()
+  
    --UnMobility--
    Character.HumanoidRootaPart.Anchored = true
   if Character.HumanoidRootPart.Anchored == true then
@@ -20,6 +20,7 @@
    hit.Parent = game.Workspace
    hit.Position = Character.Torso.Position
   Animacion:Play()
+   Sonido:Play()
   Character.Humanoid:TakeDamage(DMG)
  wait(0.3)
  --Mobility And Stop Hit--
